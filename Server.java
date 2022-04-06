@@ -9,14 +9,11 @@ import java.net.Socket;
 public class Server {
 	public static void main(String[] args) {
 		try {
-			//apertura porta, avvio del servizio
 			ServerSocket serverSocket=new ServerSocket(2000);
 			System.out.println("Server avviato correttamente");
-			//attesa di richieste dal client
 			Socket socket=serverSocket.accept();
 			System.out.println("Connessione avvenuta");
 			System.out.println("Socket: " +socket);
-			//creazione stream di output ed invio di un messaggio
 			DataOutputStream outToServer = new DataOutputStream(socket.getOutputStream());
 			outToServer.writeBytes("Ciao");
 			
