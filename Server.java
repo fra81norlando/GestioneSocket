@@ -20,7 +20,6 @@ public class Server {
 			System.out.println("Socket: " +socket);
 			DataOutputStream outToClient = new DataOutputStream(socket.getOutputStream());//creazione stream di output
 			outToClient.writeBytes("Ciao");//invio messaggio di saluto 
-			
 			DataInputStream inFromClient = new DataInputStream(socket.getInputStream());//creazione stream di input
 			String in = inFromClient.toString();
 			if(in.equals("orario")) {
@@ -28,7 +27,6 @@ public class Server {
 		        String timeStamp = date.format(new Date());// stampa data
 		        outToClient.writeBytes(timeStamp);
 			}
-			
 			serverSocket.close();//chiusura socket
 		} catch(BindException e) {
 			System.err.println("porta occupata");//errore in avvio programma di porta occupata
