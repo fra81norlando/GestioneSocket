@@ -9,14 +9,16 @@ import java.net.Socket;
 public class Server {
 	public static void main(String[] args) {
 		try {
+			//server in ascolto 
 			ServerSocket serverSocket=new ServerSocket(2000);
 			System.out.println("Server avviato correttamente");
+			//accetta la richiesta
 			Socket socket=serverSocket.accept();
 			System.out.println("Connessione avvenuta");
 			System.out.println("Socket: " +socket);
+			//invio messaggio di saluto
 			DataOutputStream outToServer = new DataOutputStream(socket.getOutputStream());
 			outToServer.writeBytes("Ciao");
-			
 			BufferedReader inFromClient = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			String in = inFromClient.toString();
 			
